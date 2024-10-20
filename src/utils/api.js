@@ -4,6 +4,7 @@ const api = axios.create({
   baseURL: `${process.env.REACT_APP_BACKEND_URL}/api`,
   headers: {
     "Content-Type": "application/json",
+    authorization: "Bearer " + localStorage.getItem("token"),
   },
 });
 /**
@@ -11,6 +12,11 @@ const api = axios.create({
  */
 api.interceptors.request.use(
   (request) => {
+    // 요청 시마다 동적으로 토큰 설정
+    const token = sessionStorage.getItem("token"); // 또는 localStorage
+    if (token) {
+      request.headers.Authorization = `Bearer ${token}`;
+    }
     console.log("Starting Request", request);
     return request;
   },
