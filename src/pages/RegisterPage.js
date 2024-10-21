@@ -70,6 +70,24 @@ const RegisterPage = () => {
           />
         </Form.Group>
 
+        <Form.Group className="mb-3" controlId="formBasicLocation">
+          <Form.Label>location(option)</Form.Label>
+          <Form.Control
+            type="string"
+            placeholder="location"
+            onChange={(event) => setPassword2(event.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicAge">
+          <Form.Label>age(option)</Form.Label>
+          <Form.Control
+            type="Number"
+            placeholder="age"
+            onChange={(event) => setPassword2(event.target.value)}
+          />
+        </Form.Group>
+
         <Button className="button-primary" type="submit">
           회원가입
         </Button>
